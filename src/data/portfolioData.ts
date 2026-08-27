@@ -948,16 +948,12 @@ export const CONTACT_DATA = {
 
     {
       label: 'LINKEDIN',
-
-      // Replace with your actual LinkedIn profile.
-      url: 'https://linkedin.com'
+      url: 'https://www.linkedin.com/in/gaurav-phutane-78465b2b6',
     },
 
     {
       label: 'GITHUB',
-
-      url:
-        'https://github.com/gauravphutane11'
+      url: 'https://github.com/gauravphutane11',
     }
   ]
 };
