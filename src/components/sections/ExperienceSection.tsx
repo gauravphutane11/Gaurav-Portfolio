@@ -3,7 +3,10 @@ import { SectionContainer } from '../layout/SectionContainer';
 import { SectionHeading } from '../ui/SectionHeading';
 import { ExperienceCard } from '../cards/ExperienceCard';
 import { Button } from '../ui/Button';
-import { EXPERIENCE_DATA, getDetailDataFor } from '../../data/portfolioData';
+import {
+  EXPERIENCE_DATA,
+  getDetailDataFor,
+} from '../../data/portfolioData';
 import { UniversalDetailData } from '../../types';
 import { ViewName } from '../../App';
 
@@ -12,38 +15,52 @@ interface ExperienceSectionProps {
   onNavigate: (view: ViewName) => void;
 }
 
-export const ExperienceSection: React.FC<ExperienceSectionProps> = ({ onOpenModal, onNavigate }) => {
+export const ExperienceSection: React.FC<ExperienceSectionProps> = ({
+  onOpenModal,
+  onNavigate,
+}) => {
   return (
     <SectionContainer id="experience">
+      {/* Section Header */}
       <SectionHeading
         category="Industry & Roles"
         title="EXPERIENCE"
-        subtitle="Building software, working with technology teams, and operating at the intersection of development and esports."
+        subtitle="A focused overview of my professional roles, technical work, and esports operations experience."
       />
 
-      <div className="flex flex-col gap-6 sm:gap-8">
-        {EXPERIENCE_DATA.map((exp) => (
+      {/* Experience List */}
+      <div className="mt-4 flex flex-col gap-5 sm:gap-6">
+        {EXPERIENCE_DATA.map((experience) => (
           <ExperienceCard
-            key={exp.id}
-            experience={exp}
-            onSelect={(e) => {
-              const detail = getDetailDataFor('experience', e.id);
-              if (detail) onOpenModal(detail);
+            key={experience.id}
+            experience={experience}
+            onSelect={(selectedExperience) => {
+              const detail = getDetailDataFor(
+                'experience',
+                selectedExperience.id
+              );
+
+              if (detail) {
+                onOpenModal(detail);
+              }
             }}
           />
         ))}
       </div>
 
-      <div className="flex justify-center pt-10">
+      {/* More About Experience */}
+      <div className="flex justify-center pt-10 sm:pt-12">
         <Button
           variant="secondary"
           size="md"
           onClick={() => onNavigate('experience-detail')}
           withArrow
         >
-          VIEW EXPERIENCE
+          MORE ABOUT EXPERIENCE
         </Button>
       </div>
     </SectionContainer>
   );
 };
+
+export default ExperienceSection;
