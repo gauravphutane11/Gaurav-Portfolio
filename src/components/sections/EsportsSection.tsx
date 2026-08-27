@@ -4,7 +4,7 @@ import { SectionHeading } from '../ui/SectionHeading';
 import { Button } from '../ui/Button';
 import { ESPORTS_DATA, getDetailDataFor } from '../../data/portfolioData';
 import { UniversalDetailData } from '../../types';
-import { Swords, Shield, Trophy } from 'lucide-react';
+import { Swords, Shield, Trophy, ArrowUpRight } from 'lucide-react';
 import { ViewName } from '../../App';
 
 interface EsportsSectionProps {
@@ -12,142 +12,500 @@ interface EsportsSectionProps {
   onNavigate: (view: ViewName) => void;
 }
 
-export const EsportsSection: React.FC<EsportsSectionProps> = ({ onOpenModal, onNavigate }) => {
+export const EsportsSection: React.FC<EsportsSectionProps> = ({
+  onOpenModal,
+  onNavigate,
+}) => {
   const handleOpenEsportsDetail = () => {
-    const detail = getDetailDataFor('esports', 'esports-profile');
-    if (detail) onOpenModal(detail);
+    const detail = getDetailDataFor(
+      'esports',
+      'esports-profile'
+    );
+
+    if (detail) {
+      onOpenModal(detail);
+    }
   };
+
+  const featuredRoster = ESPORTS_DATA.rosterHistory.slice(0, 2);
+  const featuredOperations = ESPORTS_DATA.operations.slice(0, 4);
+  const featuredTournaments = ESPORTS_DATA.topTournaments.slice(0, 3);
 
   return (
     <SectionContainer id="esports">
+      {/* =====================================================
+          SECTION HEADER
+      ====================================================== */}
+
       <SectionHeading
         category="Competitive & Tactical"
         title="ESPORTS_"
-        subtitle="Competitive player and esports operations contributor, blending strategic execution with technical tournament management."
+        subtitle="Competitive gaming and esports operations — combining strategic play, tournament execution, and high-pressure decision making."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 mb-8">
-        {/* Category 01: Player */}
-        <div
+      {/* =====================================================
+          BENTO OVERVIEW
+      ====================================================== */}
+
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-12">
+
+        {/* =================================================
+            01 — PLAYER
+        ================================================= */}
+
+        <button
+          type="button"
           onClick={handleOpenEsportsDetail}
-          className="md:col-span-4 p-6 sm:p-8 rounded-2xl bg-surface-container-lowest/50 border border-outline-variant/30 hover:border-accent/60 transition-all duration-300 backdrop-blur-md shadow-pill flex flex-col justify-between cursor-pointer group"
+          className="
+            group
+            w-full
+            text-left
+            md:col-span-4
+            rounded-2xl
+            border
+            border-outline-variant/30
+            bg-surface-container-lowest/50
+            p-6
+            backdrop-blur-md
+            shadow-pill
+            transition-all
+            duration-500
+            hover:border-accent/60
+            hover:shadow-[0_0_25px_rgba(241,80,37,0.10)]
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-accent
+            focus-visible:ring-offset-4
+            focus-visible:ring-offset-black
+          "
         >
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="font-technical-label text-xs text-accent font-semibold">01</span>
-              <h3 className="font-headline-md text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase flex items-center gap-2 group-hover:text-accent transition-colors">
-                <Swords className="w-5 h-5 text-accent" />
-                <span>PLAYER</span>
+          <div className="flex h-full flex-col">
+
+            {/* Header */}
+
+            <div className="flex items-center gap-3">
+              <span
+                className="
+                  font-technical-label
+                  text-[10px]
+                  font-semibold
+                  tracking-[0.15em]
+                  text-accent
+                "
+              >
+                01
+              </span>
+
+              <span className="h-px w-6 bg-outline-variant/50" />
+
+              <Swords className="h-4 w-4 text-accent" />
+
+              <h3
+                className="
+                  font-headline-md
+                  text-xl
+                  font-bold
+                  uppercase
+                  tracking-tight
+                  text-primary
+                  transition-colors
+                  duration-300
+                  group-hover:text-accent
+                "
+              >
+                PLAYER
               </h3>
             </div>
 
-            <div className="space-y-4">
-              <div>
-                <span className="font-technical-label text-[10px] text-on-surface-variant uppercase tracking-widest block mb-1">
-                  Discipline
-                </span>
-                <span className="font-ui-label text-sm text-primary font-semibold">
-                  {ESPORTS_DATA.discipline}
-                </span>
-              </div>
+            {/* Discipline */}
 
-              <div>
-                <span className="font-technical-label text-[10px] text-on-surface-variant uppercase tracking-widest block mb-2">
-                  Roster Qualifications
-                </span>
-                <ul className="space-y-2">
-                  {ESPORTS_DATA.rosterHistory.map((roster, idx) => (
-                    <li key={idx} className="flex items-center gap-2 font-body-md text-xs sm:text-sm text-on-surface">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent" />
-                      <span>{roster}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="mt-6">
+              <span
+                className="
+                  font-technical-label
+                  text-[9px]
+                  uppercase
+                  tracking-[0.14em]
+                  text-on-surface-variant
+                "
+              >
+                DISCIPLINE
+              </span>
+
+              <p
+                className="
+                  mt-1
+                  font-ui-label
+                  text-sm
+                  font-semibold
+                  text-primary
+                "
+              >
+                {ESPORTS_DATA.discipline}
+              </p>
+            </div>
+
+            {/* Selected Records */}
+
+            <div className="mt-5 space-y-2.5">
+              {featuredRoster.map((roster, idx) => (
+                <div
+                  key={`${roster}-${idx}`}
+                  className="flex items-start gap-2"
+                >
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+
+                  <span
+                    className="
+                      font-body-md
+                      text-xs
+                      leading-5
+                      text-on-surface-variant
+                    "
+                  >
+                    {roster}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Footer */}
+
+            <div
+              className="
+                mt-auto
+                flex
+                items-center
+                justify-between
+                border-t
+                border-outline-variant/20
+                pt-5
+                mt-7
+              "
+            >
+              <span
+                className="
+                  font-technical-label
+                  text-[9px]
+                  uppercase
+                  tracking-[0.15em]
+                  text-secondary
+                "
+              >
+                COMPETITIVE PROFILE
+              </span>
+
+              <ArrowUpRight
+                className="
+                  h-4
+                  w-4
+                  text-secondary
+                  transition-all
+                  duration-300
+                  group-hover:-translate-y-0.5
+                  group-hover:translate-x-0.5
+                  group-hover:text-accent
+                "
+              />
             </div>
           </div>
+        </button>
 
-          <div className="pt-6 mt-4 border-t border-outline-variant/20 font-technical-label text-[11px] uppercase tracking-widest text-accent flex items-center gap-1">
-            <span>VIEW PLAYER LOGS →</span>
-          </div>
-        </div>
+        {/* =================================================
+            02 — OPERATIONS
+        ================================================= */}
 
-        {/* Category 02: Operations */}
-        <div
+        <button
+          type="button"
           onClick={handleOpenEsportsDetail}
-          className="md:col-span-8 p-6 sm:p-8 rounded-2xl bg-surface-container-lowest/50 border border-outline-variant/30 hover:border-accent/60 transition-all duration-300 backdrop-blur-md shadow-pill flex flex-col justify-between cursor-pointer group"
+          className="
+            group
+            w-full
+            text-left
+            md:col-span-8
+            rounded-2xl
+            border
+            border-outline-variant/30
+            bg-surface-container-lowest/50
+            p-6
+            backdrop-blur-md
+            shadow-pill
+            transition-all
+            duration-500
+            hover:border-accent/60
+            hover:shadow-[0_0_25px_rgba(241,80,37,0.10)]
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-accent
+            focus-visible:ring-offset-4
+            focus-visible:ring-offset-black
+          "
         >
-          <div>
-            <div className="flex items-center gap-3 mb-6">
-              <span className="font-technical-label text-xs text-accent font-semibold">02</span>
-              <h3 className="font-headline-md text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase flex items-center gap-2 group-hover:text-accent transition-colors">
-                <Shield className="w-5 h-5 text-accent" />
-                <span>OPERATIONS</span>
+          <div className="flex h-full flex-col">
+
+            {/* Header */}
+
+            <div className="flex items-center gap-3">
+              <span
+                className="
+                  font-technical-label
+                  text-[10px]
+                  font-semibold
+                  tracking-[0.15em]
+                  text-accent
+                "
+              >
+                02
+              </span>
+
+              <span className="h-px w-6 bg-outline-variant/50" />
+
+              <Shield className="h-4 w-4 text-accent" />
+
+              <h3
+                className="
+                  font-headline-md
+                  text-xl
+                  font-bold
+                  uppercase
+                  tracking-tight
+                  text-primary
+                  transition-colors
+                  duration-300
+                  group-hover:text-accent
+                "
+              >
+                OPERATIONS
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-              {ESPORTS_DATA.operations.map((op, idx) => (
-                <div key={idx} className="border-l-2 border-outline-variant/40 pl-3.5 hover:border-accent transition-colors">
-                  <h4 className="font-ui-label text-sm text-primary font-bold mb-0.5">
-                    {op.organization}
-                  </h4>
-                  <p className="font-technical-label text-[10px] text-accent uppercase tracking-widest mb-1">
-                    {op.role}
+            {/* Operations Grid */}
+
+            <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              {featuredOperations.map((operation, idx) => (
+                <div
+                  key={`${operation.organization}-${idx}`}
+                  className="
+                    border-l
+                    border-outline-variant/50
+                    pl-4
+                    transition-colors
+                    duration-300
+                    hover:border-accent
+                  "
+                >
+                  <p
+                    className="
+                      font-ui-label
+                      text-sm
+                      font-bold
+                      text-primary
+                    "
+                  >
+                    {operation.organization}
                   </p>
-                  <p className="font-body-md text-xs text-on-surface-variant">
-                    {op.description}
+
+                  <p
+                    className="
+                      mt-1
+                      font-technical-label
+                      text-[9px]
+                      uppercase
+                      tracking-[0.13em]
+                      text-accent
+                    "
+                  >
+                    {operation.role}
                   </p>
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className="pt-6 mt-4 border-t border-outline-variant/20 font-technical-label text-[11px] uppercase tracking-widest text-accent flex items-center gap-1">
-            <span>VIEW EVENT LOGS →</span>
-          </div>
-        </div>
+            {/* Footer */}
 
-        {/* Category 03: Selected Highlights */}
-        <div className="md:col-span-12 p-6 sm:p-8 rounded-2xl bg-surface-container-lowest/50 border border-outline-variant/30 backdrop-blur-md shadow-pill">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="font-technical-label text-xs text-accent font-semibold">03</span>
-            <h3 className="font-headline-md text-xl sm:text-2xl text-primary font-bold tracking-tight uppercase flex items-center gap-2">
-              <Trophy className="w-5 h-5 text-accent" />
-              <span>COMPETITIVE RECORD</span>
+            <div
+              className="
+                mt-auto
+                flex
+                items-center
+                justify-between
+                border-t
+                border-outline-variant/20
+                pt-5
+                mt-7
+              "
+            >
+              <span
+                className="
+                  font-technical-label
+                  text-[9px]
+                  uppercase
+                  tracking-[0.15em]
+                  text-secondary
+                "
+              >
+                EVENT OPERATIONS
+              </span>
+
+              <ArrowUpRight
+                className="
+                  h-4
+                  w-4
+                  text-secondary
+                  transition-all
+                  duration-300
+                  group-hover:-translate-y-0.5
+                  group-hover:translate-x-0.5
+                  group-hover:text-accent
+                "
+              />
+            </div>
+          </div>
+        </button>
+
+        {/* =================================================
+            03 — COMPETITIVE RECORD
+        ================================================= */}
+
+        <div
+          className="
+            md:col-span-12
+            rounded-2xl
+            border
+            border-outline-variant/30
+            bg-surface-container-lowest/50
+            p-6
+            backdrop-blur-md
+            shadow-pill
+          "
+        >
+          {/* Header */}
+
+          <div className="flex items-center gap-3">
+            <span
+              className="
+                font-technical-label
+                text-[10px]
+                font-semibold
+                tracking-[0.15em]
+                text-accent
+              "
+            >
+              03
+            </span>
+
+            <span className="h-px w-6 bg-outline-variant/50" />
+
+            <Trophy className="h-4 w-4 text-accent" />
+
+            <h3
+              className="
+                font-headline-md
+                text-xl
+                font-bold
+                uppercase
+                tracking-tight
+                text-primary
+              "
+            >
+              COMPETITIVE RECORD
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ESPORTS_DATA.topTournaments.slice(0, 3).map((item, idx) => (
-              <div
-                key={idx}
+          {/* Tournament Highlights */}
+
+          <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredTournaments.map((item, idx) => (
+              <button
+                key={`${item.event}-${idx}`}
+                type="button"
                 onClick={handleOpenEsportsDetail}
-                className="p-4 rounded-xl bg-surface-container-high/40 border border-outline-variant/30 hover:border-accent/50 cursor-pointer transition-all duration-300 group/item"
+                className="
+                  group/item
+                  rounded-xl
+                  border
+                  border-outline-variant/30
+                  bg-surface-container-high/30
+                  p-4
+                  text-left
+                  transition-all
+                  duration-300
+                  hover:border-accent/50
+                  hover:bg-surface-container-high/50
+                  focus-visible:outline-none
+                  focus-visible:ring-2
+                  focus-visible:ring-accent
+                "
               >
-                <div className="flex justify-between items-start mb-2">
-                  <h4 className="font-ui-label text-sm text-primary font-bold group-hover/item:text-accent transition-colors">
+                <div className="flex items-start justify-between gap-3">
+                  <h4
+                    className="
+                      font-ui-label
+                      text-sm
+                      font-bold
+                      leading-5
+                      text-primary
+                      transition-colors
+                      duration-300
+                      group-hover/item:text-accent
+                    "
+                  >
                     {item.event}
                   </h4>
-                  <span className="font-technical-label text-[10px] px-2 py-0.5 rounded bg-white/10 text-white">
+
+                  <span
+                    className="
+                      shrink-0
+                      rounded
+                      bg-white/10
+                      px-2
+                      py-0.5
+                      font-technical-label
+                      text-[9px]
+                      text-secondary
+                    "
+                  >
                     {item.year}
                   </span>
                 </div>
-                <div className="font-technical-label text-xs text-primary font-semibold">
+
+                <p
+                  className="
+                    mt-3
+                    font-technical-label
+                    text-[10px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.1em]
+                    text-primary
+                  "
+                >
                   {item.placement}
-                </div>
+                </p>
+
                 {item.prize && (
-                  <div className="font-technical-label text-[11px] text-accent mt-1">
+                  <p
+                    className="
+                      mt-1
+                      font-technical-label
+                      text-[10px]
+                      text-accent
+                    "
+                  >
                     {item.prize}
-                  </div>
+                  </p>
                 )}
-              </div>
+              </button>
             ))}
           </div>
         </div>
       </div>
 
-      <div className="flex justify-center pt-4">
+      {/* =====================================================
+          ARCHIVE CTA
+      ====================================================== */}
+
+      <div className="flex justify-center pt-10">
         <Button
           variant="secondary"
           size="md"
@@ -160,3 +518,5 @@ export const EsportsSection: React.FC<EsportsSectionProps> = ({ onOpenModal, onN
     </SectionContainer>
   );
 };
+
+export default EsportsSection;
