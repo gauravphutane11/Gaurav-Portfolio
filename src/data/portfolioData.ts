@@ -545,19 +545,6 @@ export const ESPORTS_DATA: EsportsHighlight = {
     },
 
     {
-      event: 'COLLEGE RIVALS NATIONAL CIRCUIT',
-
-      year: '2023',
-
-      placement: 'WINNER',
-
-      prize: 'National Trophy',
-
-      details:
-        'Collegiate National Circuit · BGMI'
-    },
-
-    {
       event: 'BHARATI COLLEGE LAN',
 
       year: '2023',
