@@ -291,8 +291,7 @@ export const PROJECTS_DATA: Project[] = [
 
     year: '2023',
 
-    liveUrl:
-      'https://resource-link-eight.vercel.app/feed',
+    liveUrl: '',
 
     codeUrl: '',
   },
@@ -541,7 +540,7 @@ export const ESPORTS_DATA: EsportsHighlight = {
       prize: '₹10,000',
 
       details:
-        'Playoffs #2 Seed · Collegiate BGMI Competition'
+        'Competed in the collegiate BGMI tournament at AISSMS associated with the College Rivals circuit, securing a 1st-place finish and qualifying as the #2 seed for the playoffs. Demonstrates strategic in-game leadership, tactical execution, and performance under tournament pressure.'
     },
 
     {
@@ -554,7 +553,7 @@ export const ESPORTS_DATA: EsportsHighlight = {
       prize: '₹10,000',
 
       details:
-        'On-Ground LAN Championship · BGMI'
+        'Competed in the on-ground collegiate BGMI LAN tournament at Bharati College and secured 1st place as tournament champion. Demonstrates strong communication, coordination in a live LAN environment, and consistent tactical play.'
     },
 
     {
@@ -567,7 +566,7 @@ export const ESPORTS_DATA: EsportsHighlight = {
       prize: '₹20,000 Pool',
 
       details:
-        'State Collegiate Open · BGMI'
+        'Achieved a 4th-place finish in the state collegiate open BGMI LAN competition hosted at COEP featuring a ₹20,000 prize pool. Highlights disciplined macro rotation, adaptability, and high-level placement against competitive collegiate teams.'
     },
 
     {
@@ -580,7 +579,7 @@ export const ESPORTS_DATA: EsportsHighlight = {
       prize: '₹1,00,000 Pool',
 
       details:
-        'State-Level Invitational · BGMI'
+        'Secured a #6 placement in the state-level invitational BGMI LAN tournament at IICT College featuring a ₹1,00,000 prize pool. Demonstrates competitive resilience and structured team execution in a high-stakes invitational setting.'
     },
 
     {
@@ -593,7 +592,7 @@ export const ESPORTS_DATA: EsportsHighlight = {
       prize: 'Collegiate Champion',
 
       details:
-        'Inter-College BGMI LAN · Collegiate Competition'
+        'Earned 1st place and collegiate championship honors at the Government Polytechnic Pune (GPP) inter-college BGMI LAN event. Highlights early competitive consistency and decisive tactical decision-making in live tournament play.'
     },
 
     {
@@ -606,7 +605,7 @@ export const ESPORTS_DATA: EsportsHighlight = {
       prize: 'Regional Open',
 
       details:
-        'Regional LAN Finalist · BGMI'
+        'Qualified as a LAN finalist and earned a #7 rank finish in the regional open BGMI competition hosted at JSPM. Reflects on-ground competitive experience and early regional tournament participation.'
     }
   ]
 };
@@ -660,7 +659,7 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
       '₹10,000',
 
     description:
-      '1st-place finish in the recorded collegiate BGMI competition at AISSMS, associated with the College Rivals competitive circuit.',
+      'Competed in the collegiate BGMI tournament at AISSMS associated with the College Rivals circuit, securing 1st place and qualifying as the #2 seed for the playoffs.',
 
     isFeatured: false,
 
@@ -682,7 +681,7 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
       '₹10,000',
 
     description:
-      '1st-place finish in the recorded Bharati College on-ground BGMI LAN tournament.',
+      '1st-place championship finish in the on-ground collegiate BGMI LAN tournament at Bharati College, demonstrating live LAN coordination and strategic play.',
 
     isFeatured: false,
 
@@ -704,7 +703,7 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
       'Collegiate Champion',
 
     description:
-      '1st-place finish in the recorded inter-college BGMI LAN competition.',
+      '1st-place finish and collegiate champion title in the Government Polytechnic Pune inter-college BGMI LAN competition.',
 
     isFeatured: false,
 
@@ -726,7 +725,7 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
       '₹20,000 Pool',
 
     description:
-      '4th-place finish in the recorded collegiate BGMI LAN competition.',
+      '4th-place finish in the state collegiate open BGMI LAN competition hosted at COEP featuring a ₹20,000 tournament prize pool.',
 
     isFeatured: false,
 
@@ -748,7 +747,7 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
       '₹1,00,000 Pool',
 
     description:
-      'Top-six placement in the recorded state-level collegiate BGMI competition.',
+      'Top-six placement in the state-level invitational BGMI LAN tournament at IICT College featuring a ₹1,00,000 tournament prize pool.',
 
     isFeatured: false,
 
@@ -770,7 +769,7 @@ export const ACHIEVEMENTS_DATA: Achievement[] = [
       'Regional Open',
 
     description:
-      'Top-ten placement in the recorded regional collegiate BGMI LAN competition.',
+      'Qualified as a LAN finalist and secured a #7 ranking in the regional open BGMI competition hosted at JSPM.',
 
     isFeatured: false,
 
@@ -940,13 +939,6 @@ export const CONTACT_DATA = {
 
   socials: [
     {
-      label: 'INSTAGRAM',
-
-      // Replace with your actual Instagram profile.
-      url: 'https://instagram.com'
-    },
-
-    {
       label: 'LINKEDIN',
       url: 'https://www.linkedin.com/in/gaurav-phutane-78465b2b6',
     },
@@ -1109,7 +1101,7 @@ export function getDetailDataFor(
       description: [
         'Competitive BGMI player with experience across collegiate LAN tournaments, campus-level competitions, and structured esports circuits.',
 
-        'The competitive archive contains seven recorded tournament results spanning 2022–2024, including wins, podium finishes, and ranked placements.',
+        'The competitive archive contains 6 recorded tournament results spanning 2022–2024, including wins, podium finishes, and ranked placements.',
 
         'Alongside competitive play, I have supported esports operations involving tournament administration, LAN coordination, scheduling, bracket management, and live event support.',
 
@@ -1150,7 +1142,7 @@ export function getDetailDataFor(
 
         {
           label: 'RECORDED EVENTS',
-          value: '7 Tournament Records'
+          value: '6 Recorded Events'
         },
 
         {

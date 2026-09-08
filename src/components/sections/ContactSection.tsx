@@ -40,17 +40,20 @@ export const ContactSection: React.FC = () => {
             </div>
           </Button>
 
-          <Button
-            variant="pill"
-            size="lg"
-            href={CONTACT_DATA.resumeUrl}
-            className="w-full sm:w-auto"
-          >
-            <div className="flex items-center gap-2">
-              <FileText className="w-4 h-4" />
-              <span>VIEW RESUME</span>
-            </div>
-          </Button>
+          {CONTACT_DATA.resumeUrl ? (
+            <Button
+              variant="pill"
+              size="lg"
+              href={CONTACT_DATA.resumeUrl}
+              isExternal
+              className="w-full sm:w-auto"
+            >
+              <div className="flex items-center gap-2">
+                <FileText className="w-4 h-4" />
+                <span>VIEW RESUME</span>
+              </div>
+            </Button>
+          ) : null}
         </div>
 
         {/* Email Direct Link */}

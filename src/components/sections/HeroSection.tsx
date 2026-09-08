@@ -294,31 +294,33 @@ export const HeroSection: React.FC = () => {
 
         {/* Secondary */}
 
-        <a
-          href={HERO_DATA.resumeUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            inline-flex
-            items-center
-            justify-center
-            border-b
-            border-transparent
-            pb-1
-            font-technical-label
-            text-[11px]
-            uppercase
-            tracking-[0.14em]
-            text-secondary
-            transition-colors
-            duration-300
-            hover:border-primary
-            hover:text-primary
-            sm:text-xs
-          "
-        >
-          VIEW RESUME
-        </a>
+        {HERO_DATA.resumeUrl ? (
+          <a
+            href={HERO_DATA.resumeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="
+              inline-flex
+              items-center
+              justify-center
+              border-b
+              border-transparent
+              pb-1
+              font-technical-label
+              text-[11px]
+              uppercase
+              tracking-[0.14em]
+              text-secondary
+              transition-colors
+              duration-300
+              hover:border-primary
+              hover:text-primary
+              sm:text-xs
+            "
+          >
+            VIEW RESUME
+          </a>
+        ) : null}
       </div>
 
       {/* =================================================

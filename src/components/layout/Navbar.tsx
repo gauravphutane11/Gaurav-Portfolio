@@ -20,7 +20,7 @@ const NAV_LINKS = [
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
-  resumeUrl = '#',
+  resumeUrl = '',
   currentView,
   onNavigateHome,
 }) => {
@@ -122,14 +122,16 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Right CTA Pill */}
-          <a
-            href={resumeUrl}
-            target={resumeUrl !== '#' ? '_blank' : undefined}
-            rel="noreferrer"
-            className="hidden sm:inline-flex flex-shrink-0 bg-surface-container-high border border-outline-variant/50 hover:border-accent hover:text-accent rounded-full px-6 py-3 font-technical-label text-[11px] uppercase tracking-widest text-secondary hover:text-primary transition-all duration-300 shadow-pill active:scale-95"
-          >
-            VIEW RESUME
-          </a>
+          {resumeUrl ? (
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="hidden sm:inline-flex flex-shrink-0 bg-surface-container-high border border-outline-variant/50 hover:border-accent hover:text-accent rounded-full px-6 py-3 font-technical-label text-[11px] uppercase tracking-widest text-secondary hover:text-primary transition-all duration-300 shadow-pill active:scale-95"
+            >
+              VIEW RESUME
+            </a>
+          ) : null}
 
           {/* Mobile Nav Toggle */}
           <button
@@ -163,13 +165,17 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </a>
               );
             })}
-            <a
-              href={resumeUrl}
-              onClick={() => setMobileMenuOpen(false)}
-              className="mt-4 flex items-center justify-center w-full py-3.5 bg-accent text-white font-technical-label text-xs uppercase tracking-widest rounded-full shadow-glow font-semibold"
-            >
-              VIEW RESUME
-            </a>
+            {resumeUrl ? (
+              <a
+                href={resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="mt-4 flex items-center justify-center w-full py-3.5 bg-accent text-white font-technical-label text-xs uppercase tracking-widest rounded-full shadow-glow font-semibold"
+              >
+                VIEW RESUME
+              </a>
+            ) : null}
           </div>
         </div>
       )}

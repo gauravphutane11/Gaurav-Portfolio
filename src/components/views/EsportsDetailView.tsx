@@ -275,9 +275,9 @@ export const EsportsDetailView: React.FC<EsportsDetailViewProps> = ({
                 />
 
                 <Stat
-                  label="PRIZE POOLS"
-                  value="₹20,000+"
-                  detail="Career winnings"
+                  label="RECORDED EVENTS"
+                  value="6"
+                  detail="Collegiate & LAN competitions"
                 />
 
                 <Stat
@@ -287,9 +287,9 @@ export const EsportsDetailView: React.FC<EsportsDetailViewProps> = ({
                 />
 
                 <Stat
-                  label="TOURNAMENTS"
-                  value="7+"
-                  detail="LAN & circuit events"
+                  label="COLLEGIATE WINS"
+                  value="3"
+                  detail="1st place tournament finishes"
                 />
 
               </div>
@@ -656,7 +656,7 @@ export const EsportsDetailView: React.FC<EsportsDetailViewProps> = ({
                       "
                     >
                       <span>
-                        VIEW MEDIA
+                        VIEW DETAILS
                       </span>
 
                       <ArrowUpRight className="h-3.5 w-3.5" />
@@ -700,7 +700,7 @@ export const EsportsDetailView: React.FC<EsportsDetailViewProps> = ({
             "
           >
             <span>
-              OPEN ESPORTS MEDIA ARCHIVE
+              EXPLORE ESPORTS PROFILE
             </span>
 
             <ArrowUpRight className="h-4 w-4" />

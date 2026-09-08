@@ -422,35 +422,37 @@ export const AboutDetailView: React.FC<AboutDetailViewProps> = ({
 
               {/* Resume */}
 
-              <a
-                href={HERO_DATA.resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  rounded-full
-                  border
-                  border-outline-variant/50
-                  bg-surface-container-high
-                  px-6
-                  py-3
-                  font-technical-label
-                  text-xs
-                  uppercase
-                  tracking-widest
-                  text-secondary
-                  shadow-pill
-                  transition-all
-                  duration-300
-                  hover:border-accent
-                  hover:text-accent
-                "
-              >
-                <FileText className="h-4 w-4" />
-                <span>VIEW RESUME</span>
-              </a>
+              {HERO_DATA.resumeUrl ? (
+                <a
+                  href={HERO_DATA.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="
+                    inline-flex
+                    items-center
+                    gap-2
+                    rounded-full
+                    border
+                    border-outline-variant/50
+                    bg-surface-container-high
+                    px-6
+                    py-3
+                    font-technical-label
+                    text-xs
+                    uppercase
+                    tracking-widest
+                    text-secondary
+                    shadow-pill
+                    transition-all
+                    duration-300
+                    hover:border-accent
+                    hover:text-accent
+                  "
+                >
+                  <FileText className="h-4 w-4" />
+                  <span>VIEW RESUME</span>
+                </a>
+              ) : null}
             </div>
           </div>
         </section>
